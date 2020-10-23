@@ -1,5 +1,6 @@
 package io.kangris.flashlight;
 
+import android.app.Activity;
 import android.content.Context;
 import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraManager;
@@ -29,7 +30,7 @@ public class FlashLight extends AndroidNonvisibleComponent {
     public void Run() {
                 if(!state) {
 
-                    CameraManager cameraManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
+                    CameraManager cameraManager = (CameraManager) activity.getSystemService(Context.CAMERA_SERVICE);
 
                     try {
                         String cameraId = cameraManager.getCameraIdList()[0];
@@ -42,7 +43,7 @@ public class FlashLight extends AndroidNonvisibleComponent {
                 }
                     else
                     {
-                            CameraManager cameraManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
+                            CameraManager cameraManager = (CameraManager) activity.getSystemService(Context.CAMERA_SERVICE);
                             try {
                                 String cameraId = cameraManager.getCameraIdList()[0];
                                 cameraManager.setTorchMode(cameraId, false);
